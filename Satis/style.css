@@ -79,25 +79,14 @@ body {
   color: #d1d5db;
 }
 
+/* Оборачиваем всю страницу (сайдбар + контент) в общий флекс-контейнер для выравнивания */
 .content-wrapper {
+  display: flex !important;
+  align-items: flex-start !important;
   background-color: #0d1117;
   min-height: 100vh;
+  width: 100%;
 }
-
-#mw-navigation h2 {
-  display: none;
-}
-
-#mw-head {
-  margin-left: 14em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #161b22;
-  border-bottom: 2px solid #fa9c1e;
-  padding: 12px 20px;
-}
-
 .mw-wiki-logo {
   display: block;
   width: 280px;
@@ -110,32 +99,38 @@ body {
   text-indent: -9999px;
 }
 
+
+/* Шапка теперь растягивается на всю ширину или выравнивается корректно */
+#mw-head {
+  margin-left: 0 !important; /* Убираем жесткий отступ, если шапка на всю ширину */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #161b22;
+  border-bottom: 2px solid #fa9c1e;
+  padding: 12px 20px;
+}
 #left-navigation, #right-navigation {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  align-items: center; /* Выравнивает вкладки и поиск внутри контейнеров на одну высоту */
+  height: 100%;
 }
 
 #mw-head .vector-menu-content-list {
   display: flex;
+  align-items: center; /* Выравнивает пункты меню на одну линию */
   list-style: none;
   margin: 0;
   padding: 0;
   gap: 4px;
 }
 
-#mw-head .mw-list-item a {
-  display: block;
-  padding: 6px 14px;
-  background-color: #12161c;
-  color: #fa9c1e;
-  font-size: 13px;
-  font-weight: bold;
-  border: 1px solid #30363d;
-  border-radius: 4px;
-  text-decoration: none;
+#mw-head .mw-list-item {
+  display: flex;
+  align-items: center;
+  height: 32px; /* Фиксированная высота для стабильности */
 }
+
 
 #mw-head .mw-list-item.selected a {
   background-color: #fa9c1e;
@@ -144,20 +139,24 @@ body {
 
 .vector-search-box-inner {
   display: flex;
+  align-items: center;
   background-color: #0d1117;
   border: 1px solid #30363d;
   border-radius: 4px;
   overflow: hidden;
+  height: 32px; /* Приведение к единой высоте с вкладками */
+  box-sizing: border-box;
 }
 
 .vector-search-box-input {
   background: transparent;
   border: none;
   color: #fff;
-  padding: 6px 10px;
+  padding: 0 10px;
   font-size: 13px;
   width: 200px;
   outline: none;
+  height: 100%;
 }
 
 .searchButton {
@@ -167,19 +166,17 @@ body {
   color: #c9d1d9;
   padding: 0 12px;
   cursor: pointer;
+  height: 100%;
 }
 
-/* Боковая панель */
 #mw-panel {
-  position: absolute;
-  top: 38px;
-  left: 0;
+  position: static !important;
   width: 14em;
+  min-width: 14em;
   padding: 0.8em;
   background-color: #0d1117;
   box-sizing: border-box;
 }
-
 #p-logo {
   display: none;
 }
@@ -227,13 +224,12 @@ body {
 }
 
 
-/* --- Двухколоночная сетка главной страницы --- */
-
+/* Сбрасываем фиксированный отступ слева, так как теперь сайдбар находится в потоке слева от контента */
 #bodyContent.vector-body {
-  margin-left: 14em;
+  margin-left: 0 !important;
   padding: 20px;
+  flex-grow: 1;
 }
-
 #siteSub {
   color: #8b949e;
   font-size: 84%;
@@ -251,7 +247,7 @@ body {
 /* Главный контейнер сетки */
 #fp-container {
     display: grid !important;
-    grid-template-columns: 2fr 1fr !important; /* Левая колонка в два раза шире правой */
+    grid-template-columns: 2fr 1fr !important;
     gap: 20px !important;
     align-items: start !important;
     width: 100% !important;
@@ -262,7 +258,7 @@ body {
 .fp-column-right {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Отступы между блоками внутри колонки */
+    gap: 20px;
     min-width: 0;
 }
 
@@ -323,4 +319,3 @@ body {
 .fpbox a:hover {
   text-decoration: underline !important;
 }
-
