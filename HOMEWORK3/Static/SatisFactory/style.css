@@ -1,0 +1,334 @@
+/* --- Верхняя панель wiki.gg (неизменна) --- */
+#wgg-netbar {
+  background-color: #000538;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 38px;
+  border-bottom: 1px solid #281433;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+}
+
+#wgg-netbar .flex,
+#wgg-netbar div {
+  display: flex;
+  align-items: center;
+}
+
+.wgg-netbar__left {
+  gap: 20px;
+}
+
+.wgg-netbar__logo img {
+  height: 26px;
+  display: block;
+}
+
+.wgg-netbar_deals-link {
+  display: none !important;
+}
+
+.wgg-netbar__right,
+.wgg-netbar_user-links,
+.wgg-netbar_user-links ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#wgg-netbar .mw-list-item a,
+.wgg-netbar_user-links a {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #c9d1d9;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#wgg-netbar .mw-list-item a:hover,
+.wgg-netbar_user-links a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.ext-themetoggle-simple-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c9d1d9'%3E%3Cpath d='M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z'/%3E%3C/svg%3E");
+  background-size: contain;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+
+/* --- Подключение шрифтов и общие стили --- */
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap');
+
+body {
+  background-color: #0d1117;
+  margin: 0;
+  font-family: 'Afacad', sans-serif;
+  color: #d1d5db;
+}
+
+/* Общий контейнер страницы */
+.content-wrapper {
+  display: flex !important;
+  align-items: flex-start !important;
+  background-color: #0d1117;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+
+/* Шапка сайта на всю ширину экрана */
+#mw-head {
+  margin-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #161b22;
+  border-bottom: 2px solid #fa9c1e;
+  padding: 12px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mw-wiki-logo {
+  display: block;
+  width: 280px;
+  height: 80px;
+  background-image: url('https://satisfactory.wiki.gg/images/Site-logo.png?744174') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  margin: 0 auto 12px auto;
+  text-indent: -9999px;
+}
+
+#left-navigation, #right-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#mw-head .vector-menu-content-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4px;
+}
+
+#mw-head .mw-list-item a {
+  display: block;
+  padding: 6px 14px;
+  background-color: #12161c;
+  color: #fa9c1e;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+#mw-head .mw-list-item.selected a {
+  background-color: #fa9c1e;
+  color: #0d1117;
+}
+.vector-search-box-inner {
+  display: flex;
+  align-items: center;
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 32px; /* Приведение к единой высоте с вкладками */
+  box-sizing: border-box;
+}
+
+.vector-search-box-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 0 10px;
+  font-size: 13px;
+  width: 200px;
+  outline: none;
+  height: 100%;
+}
+
+.searchButton {
+  background-color: #21262d;
+  border: none;
+  border-left: 1px solid #30363d;
+  color: #c9d1d9;
+  padding: 0 12px;
+  cursor: pointer;
+  height: 100%;
+}
+
+/* Фиксированный левый сайдбар */
+#mw-panel {
+  position: static !important;
+  width: 14em !important;
+  min-width: 14em !important;
+  padding: 0.8em;
+  background-color: #0d1117;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+#p-logo {
+  display: none;
+}
+
+#mw-panel .vector-menu,
+#mw-panel .portal {
+  background: #12161c;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+#mw-panel .vector-menu-heading,
+#mw-panel .portal h3 {
+  border-bottom: 2px solid #fa9c1e;
+  margin: 0 8px;
+  padding: 6px 4px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #f0f6fc;
+  text-align: center;
+}
+
+#mw-panel .vector-menu-content-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#mw-panel .mw-list-item a {
+  color: #fa9c1e;
+  text-decoration: none;
+  font-size: 12.5px;
+}
+
+#mw-panel .mw-list-item a:hover {
+  text-decoration: underline;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+
+/* Растягиваем центральную панель на всю оставшуюся ширину */
+#bodyContent.vector-body {
+  margin-left: 0 !important;
+  padding: 20px !important;
+  flex-grow: 1 !important;
+  width: calc(100% - 14em) !important;
+  box-sizing: border-box;
+}
+#siteSub {
+  color: #8b949e;
+  font-size: 84%;
+  margin-bottom: 1em;
+}
+
+/* Строгое соответствие пропорций макета с первого скриншота */
+#fp-top {
+  display: grid !important;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr) !important;
+  gap: 20px !important;
+  align-items: start !important;
+}
+/* Сетка контента */
+#fp-container {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr !important;
+  gap: 20px !important;
+  align-items: start !important;
+  width: 100% !important;
+}
+
+/* Колонки */
+.fp-column-left,
+.fp-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* Универсальный стиль блоков вики */
+.fpbox {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Металлическая плашка с болтами ТОЛЬКО для заголовка */
+.fpHeader {
+  position: relative !important;
+  background: url('https://satisfactory.wiki.gg/images/c/c9/Corner_top_left.png') no-repeat top left border-box,
+              url('https://satisfactory.wiki.gg/images/8/8e/Bolt.png') no-repeat bottom left border-box,
+              url('https://satisfactory.wiki.gg/images/8/8e/Bolt.png') no-repeat bottom right border-box,
+              url('https://satisfactory.wiki.gg/images/5/50/Middle.png') repeat-x center left border-box, 
+              linear-gradient(to bottom, #465461, #4F4136) !important;
+  border-bottom: 3px solid #2e353b !important;
+  padding: 15px 20px !important;
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.6) !important;
+}
+
+.fpHeader::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('https://satisfactory.wiki.gg/images/a/a8/Texture.png') repeat !important;
+  opacity: 0.12 !important;
+  pointer-events: none;
+}
+
+/* Шрифты заголовков и текста */
+.fpHeaderText {
+  font-family: 'Bebas Neue', sans-serif !important;
+  font-size: 2.2rem !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+  display: block !important;
+}
+
+.fpbox p, 
+.fpbox li,
+.fpbox div {
+  font-family: 'Afacad', sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.5 !important;
+  color: #d1d5db !important;
+}
+
+.fpbox a {
+  color: #fa9c1e !important;
+  text-decoration: none !important;
+}
+
+.fpbox a:hover {
+  text-decoration: underline !important;
+}
