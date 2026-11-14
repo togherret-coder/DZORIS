@@ -1,0 +1,182 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>New Tab Dashboard</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+    }
+
+    .weather {
+      position: fixed;
+      top: 25px;
+      right: 35px;
+      text-align: right;
+      line-height: 1.2;
+    }
+
+    .weather .temp {
+      font-size: 20px;
+      font-weight: 700;
+      color: #000;
+    }
+
+    .weather .city {
+      font-size: 13px;
+      color: #6E6CDF;
+      font-weight: 500;
+    }
+
+    .center-container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .time {
+      font-size: 64px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    .greeting {
+      font-size: 22px;
+      margin: 12px 0 28px;
+      color: #6E6CDF;
+      font-weight: 600;
+    }
+
+    
+    .search-box {
+      position: relative;
+      width: 100%;
+      margin-bottom: 25px;
+      pointer-events: none;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 14px 20px 14px 45px;
+      border-radius: 12px;
+      border: 1px solid #f0f0f0;
+      background-color: #f9f9f9;
+      font-size: 15px;
+      outline: none;
+      color: #333;
+    }
+
+    .search-input::placeholder {
+      color: #9e9e9e;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9e9e9e;
+      font-size: 16px;
+    }
+
+    .shortcuts {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .shortcut-card {
+      width: 48px;
+      height: 48px;
+      background-color: #f7f7f8;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .shortcut-card:hover {
+      background-color: #efefed;
+      transform: translateY(-2px);
+    }
+
+    .shortcut-card img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .plus-icon {
+      font-size: 18px;
+      color: #a0a0a0;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="weather">
+    <div class="temp">36°</div>
+    <div class="city">Ahmedabad</div>
+  </div>
+
+  <main class="center-container">
+    <h1 class="time">09:11:01</h1>
+    <h2 class="greeting">Good Morning, Saad.</h2>
+
+
+    <div class="search-box">
+      <span class="search-icon">&#128269;</span>
+      <input type="text" class="search-input" placeholder="Search" readonly tabindex="-1">
+    </div>
+
+    <div class="shortcuts">
+      <a href="https://www.youtube.com" target="_blank" class="shortcut-card" title="YouTube">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      </a>
+
+      <a href="https://chatgpt.com" target="_blank" class="shortcut-card" title="ChatGPT">
+        <img src="https://cdn-icons-png.flaticon.com/256/11865/11865326.png" alt="ChatGPT">
+      </a>
+
+      <a href="https://www.geeksforgeeks.org" target="_blank" class="shortcut-card" title="GeeksforGeeks">
+        <img src="https://media.geeksforgeeks.org/gfg-gg-logo.svg" alt="GeeksforGeeks">
+      </a>
+
+      <a href="https://chat.deepseek.com/" target="_blank" class="shortcut-card" title="Docker">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU5PCP-vSk6gZR5plZqVb-u2FeGuHpc0hXs_LT_fdwp6Mm24L1URmuC4iw&s=10" alt="Docker">
+      </a>
+
+      <a href="https://github.com" target="_blank" class="shortcut-card" title="GitHub">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+      </a>
+
+      <a href="https://www.linkedin.com" target="_blank" class="shortcut-card" title="LinkedIn">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7ocBfV_mI-h4zf-fsMWfoFbLuJ1c3ZeFcTF4j6y2uujdZIlBtHNeJM_A&s=10" alt="LinkedIn">
+      </a>
+
+      <div class="shortcut-card" style="pointer-events: none;">
+        <span class="plus-icon">+</span>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
+</html>
