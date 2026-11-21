@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль пользователя</title>
+</head>
+<body>
+    <h1>Профиль пользователя</h1>
+
+    <p>Имя: ${User.Name}</p>
+    <p>Возраст: ${User.Age}</p>
+    <p>Email: ${User.Email}</p>
+
+
+    $if(User.IsActive)
+    <p>Пользователь активен</p>
+    $if(User.HasAge)
+    <p>Возраст указан</p>
+    $else
+    <p>Возраст не указан</p>
+    $endif
+    $else
+    <p>Пользователь неактивен</p>
+    $endif
+
+
+
+    <h2>Список друзей</h2>
+        $if(User.IsActive)
+            <ul>
+                $foreach(var friend in Friends)
+                <li>
+                    ${friend.Name}
+                        $if(friend.IsActive)
+                            <p>Активный пользователь</p>
+                        $else
+                            <p>Неактивный пользователь</p>
+                        $endif
+                    <ul>
+                        $foreach(var hobby in friend.Hobbies)
+                        <li>${hobby}</li>
+                        $endfor
+                    </ul>
+                </li>
+                $endfor
+            </ul>
+        $endif
+        
+    
+</body>
+</html>

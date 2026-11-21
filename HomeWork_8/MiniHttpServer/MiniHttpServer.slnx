@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="MiniHttpServer.Framework.UnitTests/MiniHttpServer.Framework.UnitTests.csproj" Id="89949ed2-2e7c-46a3-a36f-2ab7ea68207c" />
+  <Project Path="MiniHttpServer.Framework/MiniHttpServer.Framework.csproj" Id="8bcadbc4-5607-4514-8981-0dd087ab467c" />
+  <Project Path="MiniHttpServer.HtmlTemplating.UnitTests/MiniHttpServer.HtmlTemplating.UnitTests.csproj" Id="8f9d4c82-e8f6-4f59-ba8e-c679ef652761" />
+  <Project Path="MiniHttpServer.HtmlTemplating/MiniHttpServer.HtmlTemplating.csproj" Id="e8d54dee-55d4-4418-b066-5b1d26adb74f" />
+  <Project Path="MiniHttpServer/MiniHttpServer.csproj" />
+</Solution>
