@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Отправка электронной почты</title>
+</head>
+<body>
+    <h1>Отправить письмо</h1>
+
+    <form action="/connection/auth/sendemail" method="post">
+        <div>
+            <label for="email">Email получателя:</label>
+            <input type="email"
+                   id="email"
+                   name="email"
+                   required>
+        </div>
+
+        <div>
+            <label for="message">Текст сообщения:</label>
+            <textarea id="message"
+                      name="message"
+                      required></textarea>
+        </div>
+
+        <button type="submit">Отправить письмо</button>
+    </form>
+</body>
+</html>
